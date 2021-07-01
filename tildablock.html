@@ -1,0 +1,260 @@
+    <div id="map">
+        <div class="map-marker orange" style="top: 42.1%;left: 89%;" data-place="Камчатский край"></div>
+        <div class="map-marker gray" style="top: 11%;left: 85%;" data-place="Чукотский АО"></div>
+        <div class="map-marker green" style="top: 28.9%;left: 81%;" data-place="Магаданская область"></div>
+        <div class="map-marker green" style="top: 38.9%;left: 66.5%;" data-place="Республика Саха (Якутия)"></div>
+        <div class="map-marker orange" style="top: 63.9%;left: 79.1%;" data-place="Хабаровский край"></div>
+        <div class="map-marker orange" style="top: 66.4%;left: 71.8%;" data-place="Амурская область"></div>
+        <div class="map-marker orange" style="top: 74.4%;left: 59.8%;" data-place="Республика Бурятия"></div>
+        <div class="map-marker orange" style="top: 72.7%;left: 65.5%;" data-place="Забайкальский край"></div>
+        <div class="map-marker orange" style="top: 76.7%;left: 77.5%;" data-place="Еврейская автономная область"></div>
+        <div class="map-marker gray" style="top: 84.8%;left: 81%;" data-place="Приморский край"></div>
+        <div class="map-marker green" style="top: 71.8%;left: 85.4%;" data-place="Сахалинская область"></div>
+
+        
+    </div>
+        
+
+    <script>
+        $(document).on('click', '.map-marker', function(event) {
+            event.preventDefault();
+            let filterAttr = $(this).data('place');
+            console.log($(this).data('place'))
+            location.href = `${location.origin}/catalog?tfc_sort[330299427]=title:asc&tfc_charact:4076212[330299427]=${filterAttr}`
+        });
+        
+        
+        $.ajax({
+            // url: './assets/DFO.txt',
+            url: 'https://raw.githubusercontent.com/tupichkindenis/test/main/DFO-new.txt',
+            type: 'get',
+            // dataType: 'html',
+        })
+        .done(function(res) {
+            $('#map').append(res)
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+        
+
+      </script>
+      
+          <style>
+    #map svg {
+        max-width: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+    
+    #map {
+        position: relative;
+    }
+
+    #map:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 52%;
+    }
+
+    g.marker {
+        display: none;
+        cursor: pointer;
+        will-change: transform;
+
+    }
+    
+    .map-marker {
+        position: absolute;
+        background-size: cover;
+        width: 32px;
+        height: 44px;
+        z-index: 2;
+        transition: transform .3s;
+        cursor: pointer;
+        transform-origin: bottom;
+    }
+    
+    .map-marker.orange {
+        background: url('https://raw.githubusercontent.com/tupichkindenis/test/main/orange.svg');
+    }
+    
+    .map-marker.green {
+        background: url('https://raw.githubusercontent.com/tupichkindenis/test/main/green.svg');
+    }
+    
+    .map-marker.gray {
+        background: url('https://raw.githubusercontent.com/tupichkindenis/test/main/gray.svg');
+    }
+    
+    .map-marker:hover {
+        transform: scale(1.2);
+    }
+    
+    /*g.marker:hover {*/
+    /*    transform-origin: bottom;*/
+    /*    transform-box: fill-box;*/
+    /*    transform: scale(1.2);*/
+    /*}*/
+    
+    @media(max-width: 1000px) {
+        #map svg {
+            max-width: initial;
+            width: initial;
+            right: 0;
+            left: initial;
+        }
+    
+        #map:before {
+            padding-bottom: 90%;
+        }
+        
+        #rec331485551 .t588__title.t-heading.t-heading_lg div span {
+            font-size: 32px !important;
+        }
+        
+        .map-marker {
+            left: initial !important;
+        }
+        
+        .map-marker:nth-child(1) {
+            right: 9.4%;
+        }
+        
+        .map-marker:nth-child(2) {
+            right: 15.8%;
+        }
+        
+        .map-marker:nth-child(3) {
+            right: 23.1%;
+        }
+        
+        .map-marker:nth-child(4) {
+            right: 47.7%;
+        }
+        
+        .map-marker:nth-child(5) {
+            right: 26.6%;
+        }
+        
+        .map-marker:nth-child(6) {
+            right: 39.7%;
+        }
+        
+        .map-marker:nth-child(7) {
+            right: 60.4%;
+        }
+        
+        .map-marker:nth-child(8) {
+            right: 50.2%;
+        }
+        
+        .map-marker:nth-child(9) {
+            right: 30%;
+        }
+        
+        .map-marker:nth-child(10) {
+            right: 23.7%;
+        }
+        
+        .map-marker:nth-child(11) {
+            right: 16.6%;
+        }
+
+
+    }
+    
+    @media(max-width: 600px) {
+        #map:before {
+            padding-bottom: 120%;
+        }
+    
+        .map-marker {
+            left: initial !important;
+        }
+    
+        .map-marker:nth-child(1) {
+            right: 11.4%;
+        }
+    
+        .map-marker:nth-child(2) {
+            right: 19.8%;
+        }
+    
+        .map-marker:nth-child(3) {
+            right: 30.1%;
+        }
+    
+        .map-marker:nth-child(4) {
+            right: 63.1%;
+        }
+    
+        .map-marker:nth-child(5) {
+            right: 33.9%;
+        }
+    
+        .map-marker:nth-child(6) {
+            right: 51.6%;
+        }
+    
+        .map-marker:nth-child(7) {
+            right: 79.7%;
+        }
+    
+        .map-marker:nth-child(8) {
+            right: 65.9%;
+        }
+    
+        .map-marker:nth-child(9) {
+            right: 38.9%;
+        }
+    
+        .map-marker:nth-child(10) {
+            right: 29.2%;
+        }
+    
+        .map-marker:nth-child(11) {
+            right: 20.1%;
+        }
+    }
+    
+        
+    @media(max-width: 480px) {
+        .map-marker {
+            margin-top: -15px;
+        }
+    }
+    
+    @media(min-width: 1000px) {
+        #rec331485551 .t-container {
+            position: absolute;
+            z-index: 1;
+            transform: translateY(10vw);
+            padding-left: calc((100vw - 1200px) / 2 );
+            width: 50%;
+            max-width: 750px;
+        }
+    }
+    
+    @media(min-width: 1335px)  {
+        .map-marker {
+            margin-top: 1vw;
+        }
+    
+        #map {
+            max-width: 1920px;
+            margin: auto;
+        }
+        
+    }
+
+
+
+    </style>
